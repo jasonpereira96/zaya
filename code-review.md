@@ -245,13 +245,31 @@ It'll probably be a bit tricky though.
 Could be abstracted into another component, since this is everywhere.
 
 - /views/admin/AddCustomer.vue - (Line 203) Each role should have its own constant.
-- /views/admin/AddCustomer.vue - (Line 229) `.then()` in `async` function.
+- /views/admin/AddCustomer.vue - (Line 229) `.then()` in `async` function. Use `await` instead.
 
 ---
 
 - /views/admin/AssignPAform.vue - Empty file
 
 ---
+
+- /views/admin/AssignPAtoCustomer.vue - This component is HUGE.
+
+---
+
+- /views/admin/CreatePAAccount.vue -(Line 97) fade is bound to a static value. Is this necessary?
+- /views/admin/CreatePAAccount.vue -(Line 106) disabled is bound to a static value. Is this necessary?
+```html
+<b-alert
+    v-if="showAlert"
+    :fade="true"
+    >{{ alertMsg }}</b-alert
+>
+```
+### /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
+
+To start with NewCustomerIntake.vue
+
 
 
 
