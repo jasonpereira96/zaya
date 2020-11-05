@@ -191,10 +191,18 @@ role === 'admin' ? false : true
 role !== 'admin'
 ```
 - /views/admin/AddCategory.vue - (Line 708) move color code to a constants file
-- /views/admin/AddCategory.vue - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once
+- /views/admin/AddCategory.vue - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This expression is used 6 times in this file and probably elsewhere as well.
 ```javascript
 attachment.name.length > 20 ? `${attachment.name.substring(0, 17)}...` : `${attachment.name}`
+//Should be
+compress(attachment.name, 20)
 ```
+```javascript
+function compress(string, length) {
+    return string.length > length ? string.substring(0, length) + '...' : string;
+}
+```
+
 - /views/admin/AddCategory.vue - (Line 903) Incorrect use of `.map()`. Use `.forEach()`.
 ```javascript
 this.attachments = this.attachments.map((item) => {
@@ -206,6 +214,12 @@ this.attachments.forEach(item => {
     item.loader = false;
 });
 ```
+- /views/admin/AddCategory.vue - (Line 978) Why use `.then()` in an `async` function? Use `await` instead.
+- /views/admin/AddCategory.vue - (Line 990) Another usecase for the `compress()` function.
+- /views/admin/AddCategory.vue - (Line 966) Function `uploadAttachments()` has a callback pyramid of doom. :) https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8
+
+
+
 
 
 
