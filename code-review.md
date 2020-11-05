@@ -191,15 +191,16 @@ role === 'admin' ? false : true
 role !== 'admin'
 ```
 - /views/admin/AddCategory.vue - (Line 708) move color code to a constants file
-- /views/admin/AddCategory.vue - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This expression is used 6 times in this file and probably elsewhere as well.
+- /views/admin/AddCategory.vue - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This cumbersome expression is used **6 times** in this file and probably elsewhere as well.
+This may not be the exact logic, but the idea is reusibility
 ```javascript
 attachment.name.length > 20 ? `${attachment.name.substring(0, 17)}...` : `${attachment.name}`
 //Should be
-compress(attachment.name, 20)
+compress(attachment.name, 20, 17)
 ```
 ```javascript
-function compress(string, length) {
-    return string.length > length ? string.substring(0, length) + '...' : string;
+function compress(string, limit, length) {
+    return string.length > limit ? `${string.substring(0, length)}...` : string;
 }
 ```
 
@@ -217,6 +218,48 @@ this.attachments.forEach(item => {
 - /views/admin/AddCategory.vue - (Line 978) Why use `.then()` in an `async` function? Use `await` instead.
 - /views/admin/AddCategory.vue - (Line 990) Another usecase for the `compress()` function.
 - /views/admin/AddCategory.vue - (Line 966) Function `uploadAttachments()` has a callback pyramid of doom. :) https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8
+
+---
+
+### /views/admin/AddCategoryLoader.vue - **AddCategory.vue and this file have 500+ identical lines of code. Why? Can they be merged into a single file?**
+
+---
+
+### /views/admin/AddCustomer.vue - (Line 4) Since almost every screen has breadcrumbs on top, can we make a seperate, flexible, reusable breadcrumb component? 
+It'll probably be a bit tricky though.
+```html
+<b-breadcrumb>
+    <b-breadcrumb-item>
+        <h6
+        @click="navigateToCustomers"
+        class="text-uppercase font-family-medium"
+        >
+        Customers
+        </h6>
+    </b-breadcrumb-item>
+    <b-breadcrumb-item active>
+        <h6 class="text-uppercase font-family-medium">Add Customer</h6>
+    </b-breadcrumb-item>
+</b-breadcrumb>
+```
+Could be abstracted into another component, since this is everywhere.
+
+- /views/admin/AddCustomer.vue - (Line 203) Each role should have its own constant.
+- /views/admin/AddCustomer.vue - (Line 229) `.then()` in `async` function.
+
+---
+
+- /views/admin/AssignPAform.vue - Empty file
+
+---
+
+
+
+
+
+
+
+
 
 
 
