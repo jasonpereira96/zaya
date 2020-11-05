@@ -184,6 +184,19 @@ Some functions like `showCardHover()` seem to be identical.
 - /views/admin/AddCategory.vue - Lot of CSS in the HTML. Is this necessary?
 - /views/admin/AddCategory.vue - Too much HTML in this component. Must be broken down.
 - /views/admin/AddCategory.vue - Right Sidebar should be in a seperate component. CategoryCard could be a seperate component.
+- /views/admin/AddCategory.vue - (Line 687) Redundant ternary operator
+```javascript
+role === 'admin' ? false : true
+//should be
+role !== 'admin'
+```
+- /views/admin/AddCategory.vue - (Line 708) move color code to a constants file
+- /views/admin/AddCategory.vue - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once
+```javascript
+attachment.name.length > 20 ? `${attachment.name.substring(0, 17)}...` : `${attachment.name}`
+```
+
+
 
 
 
