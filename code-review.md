@@ -195,6 +195,17 @@ role !== 'admin'
 ```javascript
 attachment.name.length > 20 ? `${attachment.name.substring(0, 17)}...` : `${attachment.name}`
 ```
+- /views/admin/AddCategory.vue - (Line 903) Incorrect use of `.map()`. Use `.forEach()`.
+```javascript
+this.attachments = this.attachments.map((item) => {
+    item.loader = false;
+    return item;
+});
+//Should be
+this.attachments.forEach(item => {
+    item.loader = false;
+});
+```
 
 
 
