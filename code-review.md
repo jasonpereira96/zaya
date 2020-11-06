@@ -496,7 +496,7 @@ Or is there a specific reason to bind it?
 - **/views/auth/Login.vue** - (Line 16) What do the URL queries have to do with this `<h2>` element? 
 A comment explaining that would be nice.
 - **/views/auth/Login.vue** - (Line 267) Many nested `.then()`s. You could benefit from using `async await` here.
-- **/views/auth/Login.vue** - (Line 295) What is this { ? 
+- **/views/auth/Login.vue** - (Line 295) Extra { ? 
 
 ---
 
@@ -504,3 +504,51 @@ A comment explaining that would be nice.
 
 ---
 
+- **/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 97) The `<aside>` could be a seperate component.
+- **/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 181) Use `v-if` and `v-else`. 
+https://vuejs.org/v2/guide/conditional.html#v-else
+
+```html
+<b-button
+    v-if="!viewMode"
+    class="btn-danger px-5 py-3 btn-pill mt-3 mb-2">
+    Add
+</b-button>
+<b-button
+    v-if="viewMode"
+    class="btn-danger px-5 py-3 btn-pill mt-3 mb-2">
+    Save
+</b-button>
+```
+Should be
+
+```html
+<b-button
+    v-if="viewMode"
+    class="btn-danger px-5 py-3 btn-pill mt-3 mb-2">
+    Save
+</b-button>
+<b-button
+    v-else
+    class="btn-danger px-5 py-3 btn-pill mt-3 mb-2">
+    Add
+</b-button>
+```
+`viewMode` and `!viewMode` is confusing.
+
+---
+
+- **/views/common/assistant/tasks/PATasksCards.vue** - (Line 156) name should be `PATaskCard`, since this component represents only ONE Card. `PATaskCards` is confusing. 
+
+- **/views/common/assistant/tasks/PATasksCards.vue** - (Line 63) Redundant computation
+
+```html
+<span
+    class="primary--text font-family-regular more--text cursor-pointer"
+    v-if="item.categories.length > 4"
+    >+
+    {{ item.categories.length - item.categories.slice(0, 4).length }}
+    more</span
+>
+```
+`item.categories.slice(0, 4).length` will always evaluate to 4, right?
