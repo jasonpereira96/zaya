@@ -210,7 +210,8 @@ function compress(string, limit, length) {
 }
 ```
 
-- **/views/admin/AddCategory.vue** - (Line 903) Incorrect use of `.map()`. Use `.forEach()`.
+- **/views/admin/AddCategory.vue** - (Line 903) Incorrect use of `.map()`. Use `.forEach()` instead. Unless you're doing this to preserve reactivity.
+
 ```javascript
 this.attachments = this.attachments.map((item) => {
     item.loader = false;
@@ -273,32 +274,24 @@ Could be abstracted into another component, since this is everywhere.
     >{{ alertMsg }}</b-alert
 >
 ```
+
+---
+
 ### /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
 
-To start with NewCustomerIntake.vue
+- /views/admin/NewCustomerIntake.vue - (Line 305) unused variable `index`
 
+### - /views/admin/NewCustomerIntake.vue - (Line 549) Setting array length directly to 0. Why? Replace with a new array instead. 
 
+```javascript
+this.totalApiCalls.length = 0; // I have never seen such a statement.
+//Should be
+this.totalApiCalls = [];
+```
 
+### /views/admin/NewCustomerIntake.vue - (Line 565) `totalApiCalls` is a suspicious variable.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Instead of using a variable to check whether all your async calls are complete, use `await Promise.all()` instead.
 
 
 
