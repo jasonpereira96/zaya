@@ -563,4 +563,53 @@ Should be
     more</span
 >
 ```
-`item.categories.slice(0, 4).length` will always evaluate to 4, right?
+If item.categories.length > 4, then `item.categories.slice(0, 4).length` will always evaluate to 4, right?
+
+### **/views/common/assistant/tasks/PATasksCards.vue** - (Line 159) `userInitials()` has multiple identical definitions.
+
+```bash
+git grep -A 3 'userInitials(user)' ./src/
+```
+Move it to a utils file if possible.
+
+---
+
+- **/views/common/assistant/tasks/PATasks.vue** - (Line 288) Expression too long to be in template.
+
+
+- **/views/common/assistant/tasks/PATasks.vue** - (Line 2) Such a huge skeleton should be in a seperate file!
+
+
+- **/views/common/assistant/tasks/PATasks.vue** -Could you render the 5 lists' markup in a for loop? This may be overkill.
+
+
+- **/views/common/assistant/tasks/PATasks.vue** - (Line 515) It is not clear why you're using variables like `[one, two, three, four, five]`. Is it necessary to use variable names like these?
+
+
+- **/views/common/AddTasks.vue** - (Line 55) Countdown Timer is used in 3 files. Could be moved to its own file.
+- **/views/common/AddTasks.vue** - (Line 980) Why assign `this.categoriesList` twice?
+
+```javascript
+//original code
+getCategories().then((res) => {
+      this.categoriesList = [...res.data.results];
+      this.categoriesList = this.categoriesList.map((item) => {
+        item.text = item.title;
+        return item;
+      });
+    });
+
+//is there anything wrong with this?
+//.map() will anyway create a new array
+getCategories().then((res) => {
+        this.categoriesList = res.data.results.map((item) => {
+        item.text = item.title;
+        return item;
+    });
+});
+```
+
+
+
+
+
