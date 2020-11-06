@@ -1,30 +1,30 @@
 ### Note: Some of the line numbers have changed due to the latest commits
 
-- **/apis/assistants/index.js** - some HTTP verbs are all small and some are all caps.
-- **/apis/assistants/index.js** (Line 82) - handOver -> handover. The spelling of handover is inconsistent.
-- **/apis/assistants/index.js** (Line 104) - replace the if check with `status = status || "";` More readable.
+### **/apis/assistants/index.js** - some HTTP verbs are all small and some are all caps.
+### **/apis/assistants/index.js** (Line 82) - handOver -> handover. The spelling of handover is inconsistent.
+### **/apis/assistants/index.js** (Line 104) - replace the if check with `status = status || "";` More readable.
 
 --- 
 
-- **/apis/auth/index.js** - some HTTP verbs are all small and some are all caps.
-- **/apis/auth/index.js** - (Line 72) `getCommunicationIDs()` -> `getCommunicationIds()`
+### **/apis/auth/index.js** - some HTTP verbs are all small and some are all caps.
+### **/apis/auth/index.js** - (Line 72) `getCommunicationIDs()` -> `getCommunicationIds()`
 
 ---
 
-- **/apis/common/index.js** - (Line 41) `postCheckList()` -> `postChecklist()` since checklist is one whole word.
-- **/apis/common/index.js** - (Line 72) Here the L in checklist is small. Everywhere else it is capital.
-- **/apis/common/index.js** - (Line 175) Here the L in checklist is small. Everywhere else it is capital. 
-- **/apis/common/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
+### **/apis/common/index.js** - (Line 41) `postCheckList()` -> `postChecklist()` since checklist is one whole word.
+### **/apis/common/index.js** - (Line 72) Here the L in checklist is small. Everywhere else it is capital.
+### **/apis/common/index.js** - (Line 175) Here the L in checklist is small. Everywhere else it is capital. 
+### **/apis/common/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
 
 ---
 
-- **/apis/customers/index.js** -  Id is spelled differently everywhere! (ID, Id, id)
-- **/apis/customers/index.js** - (Line 10) spelling of `assistantID` is inconsistent with convention.
-- **/apis/customers/index.js** - (Line 46) spelling of `address_id` is inconsistent  with convention.
-- **/apis/customers/index.js** - (Line 62) spelling of `user_id` is inconsistent  with convention.
-- **/apis/customers/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
-- **/apis/customers/index.js** - (Line 167) magic number should go in constants.
-- **/apis/customers/index.js** - (Line 174) magic number should go in constants.
+### **/apis/customers/index.js** -  Id is spelled differently everywhere! (ID, Id, id)
+### **/apis/customers/index.js** - (Line 10) spelling of `assistantID` is inconsistent with convention.
+### **/apis/customers/index.js** - (Line 46) spelling of `address_id` is inconsistent  with convention.
+### **/apis/customers/index.js** - (Line 62) spelling of `user_id` is inconsistent  with convention.
+### **/apis/customers/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
+### **/apis/customers/index.js** - (Line 167) magic number should go in constants.
+### **/apis/customers/index.js** - (Line 174) magic number should go in constants.
 
 ---
 
