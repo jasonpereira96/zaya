@@ -90,7 +90,7 @@ this.customersActive = !!this.$route.meta.customers;
 
 ---
 
-- **/router/index.js** (Line 76) - extract out the auth middleware
+- ~~**/router/index.js** (Line 76) - extract out the auth middleware~~ To remove
 ```javascript
 (to, from, next) => {
     console.log(store.state.authModule.role);
@@ -421,6 +421,7 @@ const data = communications.map(communication => {
 
 - **/views/assistant/ViewPADirectory.vue** - (Line 330) Use case for `compress()`
 - **/views/assistant/ViewPADirectory.vue** - (Line 339) Use a computed proprety for such a huge expression.
+Refer the offical Vue Guide. https://vuejs.org/v2/guide/computed.html#Computed-Properties 
 
 ```javascript
 {{
@@ -457,4 +458,49 @@ if (valid) { // redundant
     //...
     //...
 }
+``` 
+### **/views/auth/ForgotPassword.vue** - (Line 98) Can this banner be extracted into a seperate component? The same code is there is 3 files. If I need to change something about the banner, I'll have to modify 3 files.
+
+- **/views/auth/ForgotPassword.vue** - (Line 76) `fade` bound to a static value
+
+```html
+<b-alert
+    class="alert-btn-top alert-create-pa custom-alert mt-3"
+    :show="alertDuration"
+    v-if="showAlert"
+    :fade="true"
+    >{{ alertMsg }}</b-alert
+>
 ```
+
+Should be
+
+```html
+<b-alert
+    class="alert-btn-top alert-create-pa custom-alert mt-3"
+    :show="alertDuration"
+    v-if="showAlert"
+    fade
+    >{{ alertMsg }}</b-alert
+>
+```
+Refer https://bootstrap-vue.org/docs/components/alert#fading-alerts
+
+Or is there a specific reason to bind it?
+
+- **/views/auth/ForgotPassword.vue** - (Line 165) `.then()` in `async` function, Use `await` instead.
+- **/views/auth/ForgotPassword.vue** - (Line 200) `.then()` in `async` function, Use `await` instead.
+
+---
+
+- **/views/auth/Login.vue** - (Line 16) What do the URL queries have to do with this `<h2>` element? 
+A comment explaining that would be nice.
+- **/views/auth/Login.vue** - (Line 267) Many nested `.then()`s. You could benefit from using `async await` here.
+- **/views/auth/Login.vue** - (Line 295) What is this { ? 
+
+---
+
+- **/views/auth/ResetPassword.vue** - Skipped
+
+---
+
