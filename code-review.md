@@ -388,3 +388,30 @@ git grep -A 30 'getArchivedAccounts() {' ./src/
 ```
 
 - **/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
+
+---
+
+/views/assistant/HandoverCustomers.vue - Skipped
+
+---
+
+- **/views/assistant/PADetails.vue** - (Line 747) Semantic use of `.map()`
+
+```javascript
+const data = [];
+for (let i = 0; i < this.communications.length; i++) {
+    data.push({
+        id: this.communications[i].id,
+        value: this.communications[i].value,
+    });
+}
+
+//Should be
+
+const data = communications.map(communication => {
+    let {id, value} = communication;
+    return {
+        id, value
+    };
+});
+```
