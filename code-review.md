@@ -1,3 +1,5 @@
+### Note: Some of the line numbers have changed due to the latest commits
+
 - **/apis/assistants/index.js** - some HTTP verbs are all small and some are all caps.
 - **/apis/assistants/index.js** (Line 82) - handOver -> handover. The spelling of handover is inconsistent.
 - **/apis/assistants/index.js** (Line 104) - replace the if check with `status = status || "";` More readable.
@@ -29,8 +31,8 @@
 - **components/navbar/index.vue** - Is it just me or is there a LOT of code in this file?
 - **components/navbar/index.vue** - (Line 4) The HEADROOM logo could be extracted into its own component (may be overkill)
 - **components/navbar/index.vue** - (Line 121) Why is there CSS in the HTML?
-- **components/navbar/index.vue** - (Line 227) Can we make fullName a computed property instead of using watch?
-- **components/navbar/index.vue** - (Line 258) actionLogoutUser is a cumbersome name
+- **components/navbar/index.vue** - (Line 227) Can we make `fullName` a computed property instead of using watch?
+- **components/navbar/index.vue** - (Line 258) `actionLogoutUser` is a cumbersome name
 
 ---
 
@@ -172,6 +174,7 @@ getCustomers(this.params)
     );
     }
 })
+
 //should be
 .filter((item) => item.profile === this.activeArchiveHoverId && item.isDelete)
 ```
@@ -192,12 +195,15 @@ role !== 'admin'
 ```
 - **/views/admin/AddCategory.vue** - (Line 708) move color code to a constants file
 - **/views/admin/AddCategory.vue** - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This cumbersome expression is used **6 times** in this file and probably elsewhere as well.
-This may not be the exact logic, but the idea is reusibility
+This may not be the exact logic, but the idea is reusibility.
+
 ```javascript
 attachment.name.length > 20 ? `${attachment.name.substring(0, 17)}...` : `${attachment.name}`
+
 //Should be
 compress(attachment.name, 20, 17)
 ```
+
 ```javascript
 function compress(string, limit, length) {
     return string.length > limit ? `${string.substring(0, length)}...` : string;
@@ -210,6 +216,7 @@ this.attachments = this.attachments.map((item) => {
     item.loader = false;
     return item;
 });
+
 //Should be
 this.attachments.forEach(item => {
     item.loader = false;
