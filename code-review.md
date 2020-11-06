@@ -326,9 +326,10 @@ Could be
 - **/views/assistant/ArchivedCustomers.vue** - (Line 39) Can the skeleton loader be another component?
 - **/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems overkill for such a trivial task, unless there's a good reason for it. Can it be simplified? 
 
-### **/views/assistant/ArchivedCustomers.vue** - (Line 516) `showCardHover` have multiple identical definitions in various files
+### **/views/assistant/ArchivedCustomers.vue** - (Line 516) `showCardHover` and `undoCardHover` have identical definitions in various files
 
 ```bash
 git grep -A 5 'showCardHover(id) {' ./src/
+git grep -A 5 'undoCardHover(id) {' ./src/
 ```
 
