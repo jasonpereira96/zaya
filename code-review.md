@@ -277,11 +277,11 @@ Could be abstracted into another component, since this is everywhere.
 
 ---
 
-### /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
-
 - /views/admin/NewCustomerIntake.vue - (Line 305) unused variable `index`
 
-### - /views/admin/NewCustomerIntake.vue - (Line 549) Setting array length directly to 0. Why? Replace with a new array instead. 
+### /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
+
+### /views/admin/NewCustomerIntake.vue - (Line 549) Setting array length directly to 0. Why? Replace with a new array instead. 
 
 ```javascript
 this.totalApiCalls.length = 0; // I have never seen such a statement.
@@ -291,7 +291,7 @@ this.totalApiCalls = [];
 
 ### /views/admin/NewCustomerIntake.vue - (Line 565) `totalApiCalls` is a suspicious variable.
 
-Instead of using a variable to check whether all your async calls are complete, use `await Promise.all()` instead.
+Instead of using a reactive variable to check whether all your async calls are complete, use `await Promise.all()` instead.
 
 
 
