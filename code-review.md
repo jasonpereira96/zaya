@@ -324,7 +324,7 @@ Could be
 />
 ```
 - **/views/assistant/ArchivedCustomers.vue** - (Line 39) Can the skeleton loader be another component?
-- **/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems overkill for such a trivial task, unless there's a good reason for it. Can it be simplified? 
+- **/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems convoluted for such a trivial task, unless there's a good reason for it. Can it be simplified? 
 
 ### **/views/assistant/ArchivedCustomers.vue** - (Line 516) `showCardHover` and `undoCardHover` have multiple identical definitions in various files
 
@@ -359,4 +359,32 @@ if (condition === true) {
 return condition;
 ```
 
+- **/views/assistant/ArchivedCustomers.vue** - (Line 602) Redundant statement in `catch` block.
 
+```javascript
+getAssistantCustomers(this.assistantProfileId, params)
+    .then((res) => {
+        this.customersList = [...res.data.results];
+        this.count = res.data.count;
+    })
+    .catch((err) => {
+        console.log(err);
+        this.isLoadingCustomers = false; //Redundant statement
+    })
+    .finally(() => {
+        this.isLoadingCustomers = false;
+    });
+})
+```
+
+---
+
+### **/views/assistant/DedicatedCustomers.vue** - (Line 140) Instead of using multiple SVGs for hover and not hover, Could we use a single SVG and change CSS attributes like fill on hover?
+
+- **/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
+
+### **/views/assistant/DedicatedCustomers.vue** - (Line 532) `getArchivedAccounts()` has multiple identical definitions in various files
+
+```bash
+git grep -A 30 'getArchivedAccounts() {' ./src/
+```
