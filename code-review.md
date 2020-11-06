@@ -1,66 +1,66 @@
 ### Note: Some of the line numbers have changed due to the latest commits
 
-**/apis/assistants/index.js** - some HTTP verbs are all small and some are all caps.
+1] **/apis/assistants/index.js** - some HTTP verbs are all small and some are all caps.
 
-**/apis/assistants/index.js** (Line 82) - handOver -> handover. The spelling of handover is inconsistent.
+2] **/apis/assistants/index.js** (Line 82) - handOver -> handover. The spelling of handover is inconsistent.
 
-**/apis/assistants/index.js** (Line 104) - replace the if check with `status = status || "";` More readable.
+3] **/apis/assistants/index.js** (Line 104) - replace the if check with `status = status || "";` More readable.
 
 --- 
 
-**/apis/auth/index.js** - some HTTP verbs are all small and some are all caps.
+4] **/apis/auth/index.js** - some HTTP verbs are all small and some are all caps.
 
-**/apis/auth/index.js** - (Line 72) `getCommunicationIDs()` -> `getCommunicationIds()`
-
----
-
-**/apis/common/index.js** - (Line 41) `postCheckList()` -> `postChecklist()` since checklist is one whole word.
-
-**/apis/common/index.js** - (Line 72) Here the L in checklist is small. Everywhere else it is capital.
-
-**/apis/common/index.js** - (Line 175) Here the L in checklist is small. Everywhere else it is capital. 
-
-**/apis/common/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
+5] **/apis/auth/index.js** - (Line 72) `getCommunicationIDs()` -> `getCommunicationIds()`
 
 ---
 
-**/apis/customers/index.js** -  Id is spelled differently everywhere! (ID, Id, id)
+6] **/apis/common/index.js** - (Line 41) `postCheckList()` -> `postChecklist()` since checklist is one whole word.
 
-**/apis/customers/index.js** - (Line 10) spelling of `assistantID` is inconsistent with convention.
+7] **/apis/common/index.js** - (Line 72) Here the L in checklist is small. Everywhere else it is capital.
 
-**/apis/customers/index.js** - (Line 46) spelling of `address_id` is inconsistent  with convention.
+8] **/apis/common/index.js** - (Line 175) Here the L in checklist is small. Everywhere else it is capital. 
 
-**/apis/customers/index.js** - (Line 62) spelling of `user_id` is inconsistent  with convention.
-
-**/apis/customers/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
-
-**/apis/customers/index.js** - (Line 167) magic number should go in constants.
-
-**/apis/customers/index.js** - (Line 174) magic number should go in constants.
+9] **/apis/common/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
 
 ---
 
+10] **/apis/customers/index.js** -  Id is spelled differently everywhere! (ID, Id, id)
 
-**components/navbar/index.vue** - Is it just me or is there a LOT of code in this file?
+11] **/apis/customers/index.js** - (Line 10) spelling of `assistantID` is inconsistent with convention.
 
-**components/navbar/index.vue** - (Line 4) The HEADROOM logo could be extracted into its own component (may be overkill)
+12] **/apis/customers/index.js** - (Line 46) spelling of `address_id` is inconsistent  with convention.
 
-**components/navbar/index.vue** - (Line 121) Why is there CSS in the HTML?
+13] **/apis/customers/index.js** - (Line 62) spelling of `user_id` is inconsistent  with convention.
 
-**components/navbar/index.vue** - (Line 227) Can we make `fullName` a computed property instead of using watch?
+14] **/apis/customers/index.js** - (Line 200) spelling of `profile_id` is inconsistent with the rest of the file.
 
-**components/navbar/index.vue** - (Line 258) `actionLogoutUser` is a cumbersome name
+15] **/apis/customers/index.js** - (Line 167) magic number should go in constants.
 
----
-
-**components/loader/Loader.vue** - (Line 3) move CSS to the style tag
+16] **/apis/customers/index.js** - (Line 174) magic number should go in constants.
 
 ---
 
 
-**components/sidebar/index.vue** - (Line 13) 2 img tags can be condensed into one. There's no need for 2 img tags.
+17] **components/navbar/index.vue** - Is it just me or is there a LOT of code in this file?
 
-**components/sidebar/index.vue** - The whole file is littered with duplicate code. Is there a reason for it?
+18] **components/navbar/index.vue** - (Line 4) The HEADROOM logo could be extracted into its own component (may be overkill)
+
+19] **components/navbar/index.vue** - (Line 121) Why is there CSS in the HTML?
+
+20] **components/navbar/index.vue** - (Line 227) Can we make `fullName` a computed property instead of using watch?
+
+21] **components/navbar/index.vue** - (Line 258) `actionLogoutUser` is a cumbersome name
+
+---
+
+22] **components/loader/Loader.vue** - (Line 3) move CSS to the style tag
+
+---
+
+
+23] **components/sidebar/index.vue** - (Line 13) 2 img tags can be condensed into one. There's no need for 2 img tags.
+
+24] **components/sidebar/index.vue** - The whole file is littered with duplicate code. Is there a reason for it?
 ```html
 <img
     v-if="reportsActive"
@@ -87,9 +87,9 @@ Or something similar.
 
 
 
-**components/sidebar/index.vue** - (Line 374) Extraneous if-else (in 5 more places)
+25] **components/sidebar/index.vue** - (Line 374) Extraneous if-else (in 5 more places)
 
-**components/sidebar/index.vue** - (Line 421) Extraneous if-else (in 5 more places)
+26] **components/sidebar/index.vue** - (Line 421) Extraneous if-else (in 5 more places)
 ```javascript
 if (this.$route.meta.customers) {
     this.customersActive = true;
@@ -102,65 +102,65 @@ this.customersActive = !!this.$route.meta.customers;
 
 ---
 
-**/config/axios.js** (Line 5) - baseUrl could be in a seperate constants file.
+27] **/config/axios.js** (Line 5) - baseUrl could be in a seperate constants file.
 
 ---
 
 
-**/config/googleAuth.js** -  a lot of if statements without brackets - Explicit {} for if is better (personal opinion)
+28] **/config/googleAuth.js** -  a lot of if statements without brackets - Explicit {} for if is better (personal opinion)
 
-**/config/googleAuth.js** -  move strings to constants file
-
----
-
-**/store/index.js** - No Issues
+29] **/config/googleAuth.js** -  move strings to constants file
 
 ---
 
-**/store/assistants/index.js** - No Issues
+30] **/store/index.js** - No Issues
 
 ---
 
-**/store/auth/index.js** - No Issues
+31] **/store/assistants/index.js** - No Issues
 
 ---
 
-**/store/common/index.js** - No Issues
+32] **/store/auth/index.js** - No Issues
 
 ---
 
-**/utils/constants/index.js** - No Issues
+33] **/store/common/index.js** - No Issues
 
 ---
 
-**/utils/applyDrag.js** - No Issues
+34] **/utils/constants/index.js** - No Issues
+
+---
+
+35] **/utils/applyDrag.js** - No Issues
 
 ---
 
 
-**/views/admin/customers/CurrentCustomers.vue** - (Line 4) Extract the skeleton loader/s to a seperate file.
+36] **/views/admin/customers/CurrentCustomers.vue** - (Line 4) Extract the skeleton loader/s to a seperate file.
 
-**/views/admin/customers/CurrentCustomers.vue** - How about extracting CurrentCustomerRow into a seperate Component?
+37] **/views/admin/customers/CurrentCustomers.vue** - How about extracting CurrentCustomerRow into a seperate Component?
 
-**/views/admin/customers/CurrentCustomers.vue** - Extract the modal into a seperate component. Maybe create a seperate folder of modals -> Create a base modal -> Use *slots* to create child modals as necessary.
+38] **/views/admin/customers/CurrentCustomers.vue** - Extract the modal into a seperate component. Maybe create a seperate folder of modals -> Create a base modal -> Use *slots* to create child modals as necessary.
 
 ---
 
-**/views/admin/customers/CustomersList.vue** - (Line 152) 
+39] **/views/admin/customers/CustomersList.vue** - (Line 152) 
 ```javascript
 getCustomers(this.params)
     .then((res) => {
         // too much logic in this single function. Can you modularize it?
     });
 ```
-**/views/admin/customers/CustomersList.vue** - (Line 156) Nested filter/map logic should be clearer.
+40] **/views/admin/customers/CustomersList.vue** - (Line 156) Nested filter/map logic should be clearer.
 
 --- 
 
 
-**/views/admin/customers/UnassignedCustomers.vue** - (Line 380) redundant `if` in callback function of `filter()` 
+41] **/views/admin/customers/UnassignedCustomers.vue** - (Line 380) redundant `if` in callback function of `filter()` 
 
-**/views/admin/customers/UnassignedCustomers.vue** - (Line 380) callback function of `filter()`  returns `undefined`
+42] **/views/admin/customers/UnassignedCustomers.vue** - (Line 380) callback function of `filter()`  returns `undefined`
 ```javascript
 .filter((item) => {
     if (
@@ -184,22 +184,22 @@ Some functions like `showCardHover()` seem to be identical.
 ---
 
 
-**/views/admin/AddCategory.vue** - Lot of CSS in the HTML. Is this necessary?
+43] **/views/admin/AddCategory.vue** - Lot of CSS in the HTML. Is this necessary?
 
-**/views/admin/AddCategory.vue** - Too much HTML in this component. Must be broken down.
+44] **/views/admin/AddCategory.vue** - Too much HTML in this component. Must be broken down.
 
-**/views/admin/AddCategory.vue** - Right Sidebar should be in a seperate component. CategoryCard could be a seperate component.
+45] **/views/admin/AddCategory.vue** - Right Sidebar should be in a seperate component. CategoryCard could be a seperate component.
 
-**/views/admin/AddCategory.vue** - (Line 687) Redundant ternary operator
+46] **/views/admin/AddCategory.vue** - (Line 687) Redundant ternary operator
 ```javascript
 role === 'admin' ? false : true
 //should be
 role !== 'admin'
 ```
 
-**/views/admin/AddCategory.vue** - (Line 708) move color code to a constants file
+47] **/views/admin/AddCategory.vue** - (Line 708) move color code to a constants file
 
-**/views/admin/AddCategory.vue** - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This cumbersome expression is used **6 times** in this file and probably elsewhere as well.
+48] **/views/admin/AddCategory.vue** - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This cumbersome expression is used **6 times** in this file and probably elsewhere as well.
 This may not be the exact logic, but the idea is reusibility.
 
 ```javascript
@@ -215,7 +215,7 @@ function compress(string, limit, length) {
 }
 ```
 
-**/views/admin/AddCategory.vue** - (Line 903) Incorrect use of `.map()`. Use `.forEach()` instead. Unless you're doing this to preserve reactivity.
+49] **/views/admin/AddCategory.vue** - (Line 903) Incorrect use of `.map()`. Use `.forEach()` instead. Unless you're doing this to preserve reactivity.
 
 ```javascript
 this.attachments = this.attachments.map((item) => {
@@ -229,19 +229,19 @@ this.attachments.forEach(item => {
 });
 ```
 
-**/views/admin/AddCategory.vue** - (Line 978) Why use `.then()` in an `async` function? Use `await` instead.
+50] **/views/admin/AddCategory.vue** - (Line 978) Why use `.then()` in an `async` function? Use `await` instead.
 
-**/views/admin/AddCategory.vue** - (Line 990) Another usecase for the `compress()` function.
+51] **/views/admin/AddCategory.vue** - (Line 990) Another usecase for the `compress()` function.
 
-**/views/admin/AddCategory.vue** - (Line 966) Function `uploadAttachments()` has a callback pyramid of doom. :) https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8
-
----
-
-### /views/admin/AddCategoryLoader.vue - **AddCategory.vue and this file have 500+ identical lines of code. Why? Can they be merged into a single file?**
+52] **/views/admin/AddCategory.vue** - (Line 966) Function `uploadAttachments()` has a callback pyramid of doom. :) https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8
 
 ---
 
-### /views/admin/AddCustomer.vue - (Line 4) Since almost every screen has breadcrumbs on top, can we make a seperate, flexible, reusable breadcrumb component? 
+### 53] /views/admin/AddCategoryLoader.vue - **AddCategory.vue and this file have 500+ identical lines of code. Why? Can they be merged into a single file?**
+
+---
+
+### 54] /views/admin/AddCustomer.vue - (Line 4) Since almost every screen has breadcrumbs on top, can we make a seperate, flexible, reusable breadcrumb component? 
 It'll probably be a bit tricky though.
 ```html
 <b-breadcrumb>
@@ -261,24 +261,24 @@ It'll probably be a bit tricky though.
 Could be abstracted into another component, since this is everywhere.
 
 
-**/views/admin/AddCustomer.vue** - (Line 203) Each role should have its own constant.
+55] **/views/admin/AddCustomer.vue** - (Line 203) Each role should have its own constant.
 
-**/views/admin/AddCustomer.vue** - (Line 229) `.then()` in `async` function. Use `await` instead.
-
----
-
-**/views/admin/AssignPAform.vue** - Empty file
+56] **/views/admin/AddCustomer.vue** - (Line 229) `.then()` in `async` function. Use `await` instead.
 
 ---
 
-**/views/admin/AssignPAtoCustomer.vue** - This component is HUGE.
+57] **/views/admin/AssignPAform.vue** - Empty file
+
+---
+
+58] **/views/admin/AssignPAtoCustomer.vue** - This component is HUGE.
 
 ---
 
 
-**/views/admin/CreatePAAccount.vue** -(Line 97) fade is bound to a static value. Is this necessary?
+59] **/views/admin/CreatePAAccount.vue** -(Line 97) fade is bound to a static value. Is this necessary?
 
-**/views/admin/CreatePAAccount.vue** -(Line 106) disabled is bound to a static value. Is this necessary?
+60] **/views/admin/CreatePAAccount.vue** -(Line 106) disabled is bound to a static value. Is this necessary?
 ```html
 <b-alert
     v-if="showAlert"
@@ -289,11 +289,11 @@ Could be abstracted into another component, since this is everywhere.
 
 ---
 
-**/views/admin/NewCustomerIntake.vue** - (Line 305) unused variable `index`
+61] **/views/admin/NewCustomerIntake.vue** - (Line 305) unused variable `index`
 
-### /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
+### 62] /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
 
-### /views/admin/NewCustomerIntake.vue - (Line 549) Setting array length directly to 0. Why? Replace with a new array instead. 
+### 63] /views/admin/NewCustomerIntake.vue - (Line 549) Setting array length directly to 0. Why? Replace with a new array instead. 
 
 ```javascript
 this.totalApiCalls.length = 0; // I have never seen such a statement.
@@ -301,13 +301,13 @@ this.totalApiCalls.length = 0; // I have never seen such a statement.
 this.totalApiCalls = [];
 ```
 
-### /views/admin/NewCustomerIntake.vue - (Line 565) `totalApiCalls` is a suspicious variable.
+### 64] /views/admin/NewCustomerIntake.vue - (Line 565) `totalApiCalls` is a suspicious variable.
 
 Instead of using a reactive variable to check whether all your async calls are complete, use `await Promise.all()` instead.
 
 ---
 
-**/views/assistant/ArchivedCustomers.vue** - (Line 15) HTML maybe redundant
+65] **/views/assistant/ArchivedCustomers.vue** - (Line 15) HTML maybe redundant
 
 ```html
 <img
@@ -336,18 +336,18 @@ Could be
 />
 ```
 
-**/views/assistant/ArchivedCustomers.vue** - (Line 39) Can the skeleton loader be another component?
+66] **/views/assistant/ArchivedCustomers.vue** - (Line 39) Can the skeleton loader be another component?
 
-**/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems convoluted for such a trivial task, unless there's a good reason for it. Can it be simplified? 
+67] **/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems convoluted for such a trivial task, unless there's a good reason for it. Can it be simplified? 
 
-### **/views/assistant/ArchivedCustomers.vue** - (Line 516) `showCardHover` and `undoCardHover` have multiple identical definitions in various files
+### 68] **/views/assistant/ArchivedCustomers.vue** - (Line 516) `showCardHover` and `undoCardHover` have multiple identical definitions in various files
 
 ```bash
 git grep -A 5 'showCardHover(id) {' ./src/
 git grep -A 5 'undoCardHover(id) {' ./src/
 ```
 
-**/views/assistant/ArchivedCustomers.vue** - (Line 549) Redundant `if` in `.filter()`.
+69] **/views/assistant/ArchivedCustomers.vue** - (Line 549) Redundant `if` in `.filter()`.
 ```javascript
 .filter((item) => {
     if (
@@ -373,7 +373,7 @@ if (condition === true) {
 return condition;
 ```
 
-**/views/assistant/ArchivedCustomers.vue** - (Line 602) Redundant statement in `catch` block.
+70] **/views/assistant/ArchivedCustomers.vue** - (Line 602) Redundant statement in `catch` block.
 
 ```javascript
 getAssistantCustomers(this.assistantProfileId, params)
@@ -393,23 +393,23 @@ getAssistantCustomers(this.assistantProfileId, params)
 
 ---
 
-### **/views/assistant/DedicatedCustomers.vue** - (Line 140) Instead of using multiple SVGs for hover and not hover, Could we use a single SVG and change CSS attributes like fill on hover?
+### 71] **/views/assistant/DedicatedCustomers.vue** - (Line 140) Instead of using multiple SVGs for hover and not hover, Could we use a single SVG and change CSS attributes like fill on hover?
 
-### **/views/assistant/DedicatedCustomers.vue** - (Line 532) `getArchivedAccounts()` has multiple identical definitions in various files
+### 72] **/views/assistant/DedicatedCustomers.vue** - (Line 532) `getArchivedAccounts()` has multiple identical definitions in various files
 
 ```bash
 git grep -A 30 'getArchivedAccounts() {' ./src/
 ```
 
-**/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
+73] **/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
 
 ---
 
-**/views/assistant/HandoverCustomers.vue** - Skipped
+74] **/views/assistant/HandoverCustomers.vue** - Skipped
 
 ---
 
-**/views/assistant/PADetails.vue** - (Line 747) Semantic use of `.map()`
+75] **/views/assistant/PADetails.vue** - (Line 747) Semantic use of `.map()`
 
 ```javascript
 const data = [];
@@ -434,9 +434,9 @@ const data = communications.map(communication => {
 
 
 
-**/views/assistant/ViewPADirectory.vue** - (Line 330) Use case for `compress()`
+76] **/views/assistant/ViewPADirectory.vue** - (Line 330) Use case for `compress()`
 
-**/views/assistant/ViewPADirectory.vue** - (Line 339) Use a computed proprety for such a huge expression.
+77] **/views/assistant/ViewPADirectory.vue** - (Line 339) Use a computed proprety for such a huge expression.
 Refer the offical Vue Guide. https://vuejs.org/v2/guide/computed.html#Computed-Properties 
 
 ```javascript
@@ -454,7 +454,7 @@ Refer the offical Vue Guide. https://vuejs.org/v2/guide/computed.html#Computed-P
 {{someComputedProperty}}
 ```
 
-**/views/assistant/ViewPADirectory.vue** - (Line 604) `workHoursToInteger()` repeated in 3 different files. That's still ok, not a big deal.
+78] **/views/assistant/ViewPADirectory.vue** - (Line 604) `workHoursToInteger()` repeated in 3 different files. That's still ok, not a big deal.
 
 ```bash
 git grep -A 2 'workHoursToInteger(w' ./src/
@@ -462,7 +462,7 @@ git grep -A 2 'workHoursToInteger(w' ./src/
 
 ---
 
-**/views/auth/ForgotPassword.vue** - (Line 158) redundant variable `valid`
+79] **/views/auth/ForgotPassword.vue** - (Line 158) redundant variable `valid`
 
 ```javascript
 const valid = true; // Why do this? :)
@@ -475,9 +475,9 @@ if (valid) { // redundant
     //...
 }
 ``` 
-### **/views/auth/ForgotPassword.vue** - (Line 98) Can this banner be extracted into a seperate component? The same code is there is 3 files. If I need to change something about the banner, I'll have to modify 3 files.
+### 80] **/views/auth/ForgotPassword.vue** - (Line 98) Can this banner be extracted into a seperate component? The same code is there is 3 files. If I need to change something about the banner, I'll have to modify 3 files.
 
-**/views/auth/ForgotPassword.vue** - (Line 76) `fade` bound to a static value
+81] **/views/auth/ForgotPassword.vue** - (Line 76) `fade` bound to a static value
 
 ```html
 <b-alert
@@ -505,29 +505,29 @@ Refer https://bootstrap-vue.org/docs/components/alert#fading-alerts
 Or is there a specific reason to bind it?
 
 
-**/views/auth/ForgotPassword.vue** - (Line 165) `.then()` in `async` function, Use `await` instead.
+82] **/views/auth/ForgotPassword.vue** - (Line 165) `.then()` in `async` function, Use `await` instead.
 
-**/views/auth/ForgotPassword.vue** - (Line 200) `.then()` in `async` function, Use `await` instead.
+83] **/views/auth/ForgotPassword.vue** - (Line 200) `.then()` in `async` function, Use `await` instead.
 
 ---
 
-**/views/auth/Login.vue** - (Line 16) What do the URL queries have to do with this `<h2>` element? 
+84] **/views/auth/Login.vue** - (Line 16) What do the URL queries have to do with this `<h2>` element? 
 A comment explaining that would be nice.
 
-**/views/auth/Login.vue** - (Line 267) Many nested `.then()`s. You could benefit from using `async await` here.
+85] **/views/auth/Login.vue** - (Line 267) Many nested `.then()`s. You could benefit from using `async await` here.
 
-**/views/auth/Login.vue** - (Line 295) Extra { ? 
-
----
-
-**/views/auth/ResetPassword.vue** - Skipped
+86] **/views/auth/Login.vue** - (Line 295) Extra { ? 
 
 ---
 
+87] **/views/auth/ResetPassword.vue** - Skipped
 
-**/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 97) The `<aside>` could be a seperate component.
+---
 
-**/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 181) Use `v-if` and `v-else`. 
+
+88] **/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 97) The `<aside>` could be a seperate component.
+
+89] **/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 181) Use `v-if` and `v-else`. 
 https://vuejs.org/v2/guide/conditional.html#v-else
 
 ```html
@@ -560,9 +560,9 @@ Should be
 
 ---
 
-**/views/common/assistant/tasks/PATasksCards.vue** - (Line 156) name should be `PATaskCard`, since this component represents only ONE Card. `PATaskCards` is confusing. 
+90] **/views/common/assistant/tasks/PATasksCards.vue** - (Line 156) name should be `PATaskCard`, since this component represents only ONE Card. `PATaskCards` is confusing. 
 
-**/views/common/assistant/tasks/PATasksCards.vue** - (Line 63) Redundant computation
+91] **/views/common/assistant/tasks/PATasksCards.vue** - (Line 63) Redundant computation
 
 ```html
 <span
@@ -575,7 +575,7 @@ Should be
 ```
 If item.categories.length > 4, then `item.categories.slice(0, 4).length` will always evaluate to 4, right?
 
-### **/views/common/assistant/tasks/PATasksCards.vue** - (Line 159) `userInitials()` has multiple identical definitions.
+### 92] **/views/common/assistant/tasks/PATasksCards.vue** - (Line 159) `userInitials()` has multiple identical definitions.
 
 ```bash
 git grep -A 3 'userInitials(user)' ./src/
@@ -584,22 +584,22 @@ Move it to a utils file if possible.
 
 ---
 
-**/views/common/assistant/tasks/PATasks.vue** - (Line 288) Expression too long to be in template.
+93] **/views/common/assistant/tasks/PATasks.vue** - (Line 288) Expression too long to be in template.
 
 
-**/views/common/assistant/tasks/PATasks.vue** - (Line 2) Such a huge skeleton should be in a seperate file!
+94] **/views/common/assistant/tasks/PATasks.vue** - (Line 2) Such a huge skeleton should be in a seperate file!
 
 
-**/views/common/assistant/tasks/PATasks.vue** -Could you render the 5 lists' markup in a for loop? This may be overkill.
+95] **/views/common/assistant/tasks/PATasks.vue** -Could you render the 5 lists' markup in a for loop? This may be overkill.
 
 
-**/views/common/assistant/tasks/PATasks.vue** - (Line 515) It is not clear why you're using variables like `[one, two, three, four, five]`. Is it necessary to use variable names like these?
+96] **/views/common/assistant/tasks/PATasks.vue** - (Line 515) It is not clear why you're using variables like `[one, two, three, four, five]`. Is it necessary to use variable names like these?
 
 
 
-**/views/common/AddTasks.vue** - (Line 55) Countdown Timer is used in 3 files. Could be moved to its own file.
+97] **/views/common/AddTasks.vue** - (Line 55) Countdown Timer is used in 3 files. Could be moved to its own file.
 
-**/views/common/AddTasks.vue** - (Line 980) Why assign `this.categoriesList` twice?
+98] **/views/common/AddTasks.vue** - (Line 980) Why assign `this.categoriesList` twice?
 
 ```javascript
 //original code
@@ -621,11 +621,11 @@ getCategories().then((res) => {
 });
 ```
 
-**/views/common/AddTasks.vue** - (Line 1282) Redundant ternary operator
+99] **/views/common/AddTasks.vue** - (Line 1282) Redundant ternary operator
 
-**/views/common/AddTasks.vue** - (Line 1299) Use a `for .. of` loop here. Avoid using `for(let i=0; ....)` when possible.
+100] **/views/common/AddTasks.vue** - (Line 1299) Use a `for .. of` loop here. Avoid using `for(let i=0; ....)` when possible.
 
-**/views/common/AddTasks.vue** - (Line 1349) Incorrect use of `.map()`. Value returned by `.map()` is unused. Then why use `.map()` in the first place?
+101] **/views/common/AddTasks.vue** - (Line 1349) Incorrect use of `.map()`. Value returned by `.map()` is unused. Then why use `.map()` in the first place?
 ```javascript
 const payload = [];
 this.selectedCategories.map((item) => {
@@ -635,9 +635,9 @@ this.selectedCategories.map((item) => {
 const payload = this.selectedCategories.map((item) => item.id);
 ```
 
-**/views/common/AddTasks.vue** - (Line 1352) `categoryIDs` should be renamed to `categoryIds` in accordance with convention. 
+102] **/views/common/AddTasks.vue** - (Line 1352) `categoryIDs` should be renamed to `categoryIds` in accordance with convention. 
 
-**/views/common/AddTasks.vue** - (Line 1390) Logic for decrementing page is confusing. Logic for incrementing page is good.
+103] **/views/common/AddTasks.vue** - (Line 1390) Logic for decrementing page is confusing. Logic for incrementing page is good.
 ```javascript
 //original code
 prevPage() {
@@ -657,7 +657,7 @@ prevPage() {
 
 ---
 
-**/views/common/ProfileSettings.vue** - (Line 1461) Bad variable names
+104] **/views/common/ProfileSettings.vue** - (Line 1461) Bad variable names
 
 ```javascript
 //bad naming
@@ -671,12 +671,12 @@ let communicationIsValid = await this.$refs.communicationInfo.validate();
 let generalIsValid = await this.$refs.generalInfo.validate();
 ```
 
-**/views/common/ProfileSettings.vue** - (Line 1505) Identical definitions in multiple files
+105] **/views/common/ProfileSettings.vue** - (Line 1505) Identical definitions in multiple files
 ```bash
 git grep -A 10 'uploadFile' ./src/
 ```
 
-**/views/common/ProfileSettings.vue** - (Line 1543) Network calls effectively synchronous. Use `Promise.all([])` if the calls are not dependent on each other.
+106] **/views/common/ProfileSettings.vue** - (Line 1543) Network calls effectively synchronous. Use `Promise.all([])` if the calls are not dependent on each other.
 
 ```javascript
 //Original code
@@ -696,5 +696,5 @@ Promise.all([getCommunicationIDs(), getNotificationIDs()]).then(([commResult, no
 
 ---
 
-**/views/common/Resources.vue** - (Line 108) ResourceCard could be a seperate component.
+107] **/views/common/Resources.vue** - (Line 108) ResourceCard could be a seperate component.
 
