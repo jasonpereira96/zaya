@@ -293,5 +293,34 @@ this.totalApiCalls = [];
 
 Instead of using a reactive variable to check whether all your async calls are complete, use `await Promise.all()` instead.
 
+---
 
+- /views/assistant/ArchivedCustomers.vue - (Line 15) HTML maybe redundant
 
+```html
+<img
+    v-if="!showListView"
+    @click="showListView = !showListView"
+    src="../../assets/icons/card_grid.svg"
+    alt
+    class="cursor-pointer"
+/>
+<img
+    v-if="showListView"
+    @click="showListView = !showListView"
+    src="../../assets/icons/card_list.svg"
+    alt
+    class="cursor-pointer"
+/>
+```
+Could be
+
+```html
+<img
+    @click="toggleListView" 
+    :src="showListView ? '../../assets/icons/card_list.svg' : '../../assets/icons/card_grid.svg'"
+    alt
+    class="cursor-pointer"
+/>
+/>
+```
