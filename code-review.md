@@ -40,20 +40,27 @@
 
 ---
 
-- **components/navbar/index.vue** - Is it just me or is there a LOT of code in this file?
-- **components/navbar/index.vue** - (Line 4) The HEADROOM logo could be extracted into its own component (may be overkill)
-- **components/navbar/index.vue** - (Line 121) Why is there CSS in the HTML?
-- **components/navbar/index.vue** - (Line 227) Can we make `fullName` a computed property instead of using watch?
-- **components/navbar/index.vue** - (Line 258) `actionLogoutUser` is a cumbersome name
+
+**components/navbar/index.vue** - Is it just me or is there a LOT of code in this file?
+
+**components/navbar/index.vue** - (Line 4) The HEADROOM logo could be extracted into its own component (may be overkill)
+
+**components/navbar/index.vue** - (Line 121) Why is there CSS in the HTML?
+
+**components/navbar/index.vue** - (Line 227) Can we make `fullName` a computed property instead of using watch?
+
+**components/navbar/index.vue** - (Line 258) `actionLogoutUser` is a cumbersome name
 
 ---
 
-- **components/loader/Loader.vue** - (Line 3) move CSS to the style tag
+**components/loader/Loader.vue** - (Line 3) move CSS to the style tag
 
 ---
 
-- **components/sidebar/index.vue** - (Line 13) 2 img tags can be condensed into one. There's no need for 2 img tags.
-- **components/sidebar/index.vue** - The whole file is littered with duplicate code. Is there a reason for it?
+
+**components/sidebar/index.vue** - (Line 13) 2 img tags can be condensed into one. There's no need for 2 img tags.
+
+**components/sidebar/index.vue** - The whole file is littered with duplicate code. Is there a reason for it?
 ```html
 <img
     v-if="reportsActive"
@@ -79,8 +86,10 @@ Can be:
 Or something similar.
 
 
-- **components/sidebar/index.vue** - (Line 374) Extraneous if-else (in 5 more places)
-- **components/sidebar/index.vue** - (Line 421) Extraneous if-else (in 5 more places)
+
+**components/sidebar/index.vue** - (Line 374) Extraneous if-else (in 5 more places)
+
+**components/sidebar/index.vue** - (Line 421) Extraneous if-else (in 5 more places)
 ```javascript
 if (this.$route.meta.customers) {
     this.customersActive = true;
@@ -93,75 +102,51 @@ this.customersActive = !!this.$route.meta.customers;
 
 ---
 
-- **/config/axios.js** (Line 5) - baseUrl could be in a seperate constants file.
+**/config/axios.js** (Line 5) - baseUrl could be in a seperate constants file.
 
 ---
 
-- **/config/googleAuth.js** -  a lot of if statements without brackets - Explicit {} for if is better (personal opinion)
-- **/config/googleAuth.js** -  move strings to constants file
+
+**/config/googleAuth.js** -  a lot of if statements without brackets - Explicit {} for if is better (personal opinion)
+
+**/config/googleAuth.js** -  move strings to constants file
 
 ---
 
-- ~~**/router/index.js** (Line 76) - extract out the auth middleware~~ To remove
-```javascript
-(to, from, next) => {
-    console.log(store.state.authModule.role);
-    if (store.state.authModule.role !== "admin") {
-        next(false);
-    } else {
-        next();
-    }
-} //could be abstracted into a seperate function checkAdmin()
-```
-and used as such
-```javascript
-{
-    path: "/admin/create-pa-account",
-    name: "CreatePAAccount",
-    meta: {
-      assistants: true,
-    },
-    component: () =>
-        import(
-            /* webpackChunkName: "create-pa-account" */ "../views/admin/CreatePAAccount.vue"
-        ),
-    beforeEnter: checkAdmin
-},
-```
+**/store/index.js** - No Issues
 
 ---
 
-- **/store/index.js** - No Issues
+**/store/assistants/index.js** - No Issues
 
 ---
 
-- **/store/assistants/index.js** - No Issues
+**/store/auth/index.js** - No Issues
 
 ---
 
-- **/store/auth/index.js** - No Issues
+**/store/common/index.js** - No Issues
 
 ---
 
-- **/store/common/index.js** - No Issues
+**/utils/constants/index.js** - No Issues
 
 ---
 
-- **/utils/constants/index.js** - No Issues
+**/utils/applyDrag.js** - No Issues
 
 ---
 
-- **/utils/applyDrag.js** - No Issues
+
+**/views/admin/customers/CurrentCustomers.vue** - (Line 4) Extract the skeleton loader/s to a seperate file.
+
+**/views/admin/customers/CurrentCustomers.vue** - How about extracting CurrentCustomerRow into a seperate Component?
+
+**/views/admin/customers/CurrentCustomers.vue** - Extract the modal into a seperate component. Maybe create a seperate folder of modals -> Create a base modal -> Use *slots* to create child modals as necessary.
 
 ---
 
-- **/views/admin/customers/CurrentCustomers.vue** - (Line 4) Extract the skeleton loader/s to a seperate file.
-- **/views/admin/customers/CurrentCustomers.vue** - How about extracting CurrentCustomerRow into a seperate Component?
-- **/views/admin/customers/CurrentCustomers.vue** - Extract the modal into a seperate component. Maybe create a seperate folder of modals -> Create a base modal -> Use *slots* to create child modals as necessary.
-
----
-
-- **/views/admin/customers/CustomersList.vue** - (Line 152) 
+**/views/admin/customers/CustomersList.vue** - (Line 152) 
 ```javascript
 getCustomers(this.params)
     .then((res) => {
@@ -172,8 +157,10 @@ getCustomers(this.params)
 
 --- 
 
-- **/views/admin/customers/UnassignedCustomers.vue** - (Line 380) redundant `if` in callback function of `filter()` 
-- **/views/admin/customers/UnassignedCustomers.vue** - (Line 380) callback function of `filter()`  returns `undefined`
+
+**/views/admin/customers/UnassignedCustomers.vue** - (Line 380) redundant `if` in callback function of `filter()` 
+
+**/views/admin/customers/UnassignedCustomers.vue** - (Line 380) callback function of `filter()`  returns `undefined`
 ```javascript
 .filter((item) => {
     if (
@@ -196,17 +183,23 @@ Some functions like `showCardHover()` seem to be identical.
 
 ---
 
-- **/views/admin/AddCategory.vue** - Lot of CSS in the HTML. Is this necessary?
-- **/views/admin/AddCategory.vue** - Too much HTML in this component. Must be broken down.
-- **/views/admin/AddCategory.vue** - Right Sidebar should be in a seperate component. CategoryCard could be a seperate component.
-- **/views/admin/AddCategory.vue** - (Line 687) Redundant ternary operator
+
+**/views/admin/AddCategory.vue** - Lot of CSS in the HTML. Is this necessary?
+
+**/views/admin/AddCategory.vue** - Too much HTML in this component. Must be broken down.
+
+**/views/admin/AddCategory.vue** - Right Sidebar should be in a seperate component. CategoryCard could be a seperate component.
+
+**/views/admin/AddCategory.vue** - (Line 687) Redundant ternary operator
 ```javascript
 role === 'admin' ? false : true
 //should be
 role !== 'admin'
 ```
-- **/views/admin/AddCategory.vue** - (Line 708) move color code to a constants file
-- **/views/admin/AddCategory.vue** - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This cumbersome expression is used **6 times** in this file and probably elsewhere as well.
+
+**/views/admin/AddCategory.vue** - (Line 708) move color code to a constants file
+
+**/views/admin/AddCategory.vue** - (Line 708) Could extract this into a seperate utility function `compress()` , since it used more than once. This cumbersome expression is used **6 times** in this file and probably elsewhere as well.
 This may not be the exact logic, but the idea is reusibility.
 
 ```javascript
@@ -222,7 +215,7 @@ function compress(string, limit, length) {
 }
 ```
 
-- **/views/admin/AddCategory.vue** - (Line 903) Incorrect use of `.map()`. Use `.forEach()` instead. Unless you're doing this to preserve reactivity.
+**/views/admin/AddCategory.vue** - (Line 903) Incorrect use of `.map()`. Use `.forEach()` instead. Unless you're doing this to preserve reactivity.
 
 ```javascript
 this.attachments = this.attachments.map((item) => {
@@ -235,9 +228,12 @@ this.attachments.forEach(item => {
     item.loader = false;
 });
 ```
-- **/views/admin/AddCategory.vue** - (Line 978) Why use `.then()` in an `async` function? Use `await` instead.
-- **/views/admin/AddCategory.vue** - (Line 990) Another usecase for the `compress()` function.
-- **/views/admin/AddCategory.vue** - (Line 966) Function `uploadAttachments()` has a callback pyramid of doom. :) https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8
+
+**/views/admin/AddCategory.vue** - (Line 978) Why use `.then()` in an `async` function? Use `await` instead.
+
+**/views/admin/AddCategory.vue** - (Line 990) Another usecase for the `compress()` function.
+
+**/views/admin/AddCategory.vue** - (Line 966) Function `uploadAttachments()` has a callback pyramid of doom. :) https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8
 
 ---
 
@@ -264,21 +260,25 @@ It'll probably be a bit tricky though.
 ```
 Could be abstracted into another component, since this is everywhere.
 
-- **/views/admin/AddCustomer.vue** - (Line 203) Each role should have its own constant.
-- **/views/admin/AddCustomer.vue** - (Line 229) `.then()` in `async` function. Use `await` instead.
+
+**/views/admin/AddCustomer.vue** - (Line 203) Each role should have its own constant.
+
+**/views/admin/AddCustomer.vue** - (Line 229) `.then()` in `async` function. Use `await` instead.
 
 ---
 
-- **/views/admin/AssignPAform.vue** - Empty file
+**/views/admin/AssignPAform.vue** - Empty file
 
 ---
 
-- **/views/admin/AssignPAtoCustomer.vue** - This component is HUGE.
+**/views/admin/AssignPAtoCustomer.vue** - This component is HUGE.
 
 ---
 
-- **/views/admin/CreatePAAccount.vue** -(Line 97) fade is bound to a static value. Is this necessary?
-- **/views/admin/CreatePAAccount.vue** -(Line 106) disabled is bound to a static value. Is this necessary?
+
+**/views/admin/CreatePAAccount.vue** -(Line 97) fade is bound to a static value. Is this necessary?
+
+**/views/admin/CreatePAAccount.vue** -(Line 106) disabled is bound to a static value. Is this necessary?
 ```html
 <b-alert
     v-if="showAlert"
@@ -289,7 +289,7 @@ Could be abstracted into another component, since this is everywhere.
 
 ---
 
-- /views/admin/NewCustomerIntake.vue - (Line 305) unused variable `index`
+**/views/admin/NewCustomerIntake.vue** - (Line 305) unused variable `index`
 
 ### /views/admin/NewCustomerIntake.vue - (Line 531) function `navigateToCustomers()` has multiple identical definitions in various files
 
@@ -307,7 +307,7 @@ Instead of using a reactive variable to check whether all your async calls are c
 
 ---
 
-- **/views/assistant/ArchivedCustomers.vue** - (Line 15) HTML maybe redundant
+**/views/assistant/ArchivedCustomers.vue** - (Line 15) HTML maybe redundant
 
 ```html
 <img
@@ -335,8 +335,10 @@ Could be
     class="cursor-pointer"
 />
 ```
-- **/views/assistant/ArchivedCustomers.vue** - (Line 39) Can the skeleton loader be another component?
-- **/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems convoluted for such a trivial task, unless there's a good reason for it. Can it be simplified? 
+
+**/views/assistant/ArchivedCustomers.vue** - (Line 39) Can the skeleton loader be another component?
+
+**/views/assistant/ArchivedCustomers.vue** - (Line 516) The logic for card hover seems convoluted for such a trivial task, unless there's a good reason for it. Can it be simplified? 
 
 ### **/views/assistant/ArchivedCustomers.vue** - (Line 516) `showCardHover` and `undoCardHover` have multiple identical definitions in various files
 
@@ -345,7 +347,7 @@ git grep -A 5 'showCardHover(id) {' ./src/
 git grep -A 5 'undoCardHover(id) {' ./src/
 ```
 
-- **/views/assistant/ArchivedCustomers.vue** - (Line 549) Redundant `if` in `.filter()`.
+**/views/assistant/ArchivedCustomers.vue** - (Line 549) Redundant `if` in `.filter()`.
 ```javascript
 .filter((item) => {
     if (
@@ -371,7 +373,7 @@ if (condition === true) {
 return condition;
 ```
 
-- **/views/assistant/ArchivedCustomers.vue** - (Line 602) Redundant statement in `catch` block.
+**/views/assistant/ArchivedCustomers.vue** - (Line 602) Redundant statement in `catch` block.
 
 ```javascript
 getAssistantCustomers(this.assistantProfileId, params)
@@ -399,7 +401,7 @@ getAssistantCustomers(this.assistantProfileId, params)
 git grep -A 30 'getArchivedAccounts() {' ./src/
 ```
 
-- **/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
+**/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
 
 ---
 
@@ -407,7 +409,7 @@ git grep -A 30 'getArchivedAccounts() {' ./src/
 
 ---
 
-- **/views/assistant/PADetails.vue** - (Line 747) Semantic use of `.map()`
+**/views/assistant/PADetails.vue** - (Line 747) Semantic use of `.map()`
 
 ```javascript
 const data = [];
@@ -431,8 +433,10 @@ const data = communications.map(communication => {
 ---
 
 
-- **/views/assistant/ViewPADirectory.vue** - (Line 330) Use case for `compress()`
-- **/views/assistant/ViewPADirectory.vue** - (Line 339) Use a computed proprety for such a huge expression.
+
+**/views/assistant/ViewPADirectory.vue** - (Line 330) Use case for `compress()`
+
+**/views/assistant/ViewPADirectory.vue** - (Line 339) Use a computed proprety for such a huge expression.
 Refer the offical Vue Guide. https://vuejs.org/v2/guide/computed.html#Computed-Properties 
 
 ```javascript
@@ -450,7 +454,7 @@ Refer the offical Vue Guide. https://vuejs.org/v2/guide/computed.html#Computed-P
 {{someComputedProperty}}
 ```
 
-- **/views/assistant/ViewPADirectory.vue** - (Line 604) `workHoursToInteger()` repeated in 3 different files. That's still ok, not a big deal.
+**/views/assistant/ViewPADirectory.vue** - (Line 604) `workHoursToInteger()` repeated in 3 different files. That's still ok, not a big deal.
 
 ```bash
 git grep -A 2 'workHoursToInteger(w' ./src/
@@ -458,7 +462,7 @@ git grep -A 2 'workHoursToInteger(w' ./src/
 
 ---
 
-- **/views/auth/ForgotPassword.vue** - (Line 158) redundant variable `valid`
+**/views/auth/ForgotPassword.vue** - (Line 158) redundant variable `valid`
 
 ```javascript
 const valid = true; // Why do this? :)
@@ -473,7 +477,7 @@ if (valid) { // redundant
 ``` 
 ### **/views/auth/ForgotPassword.vue** - (Line 98) Can this banner be extracted into a seperate component? The same code is there is 3 files. If I need to change something about the banner, I'll have to modify 3 files.
 
-- **/views/auth/ForgotPassword.vue** - (Line 76) `fade` bound to a static value
+**/views/auth/ForgotPassword.vue** - (Line 76) `fade` bound to a static value
 
 ```html
 <b-alert
@@ -500,24 +504,30 @@ Refer https://bootstrap-vue.org/docs/components/alert#fading-alerts
 
 Or is there a specific reason to bind it?
 
-- **/views/auth/ForgotPassword.vue** - (Line 165) `.then()` in `async` function, Use `await` instead.
-- **/views/auth/ForgotPassword.vue** - (Line 200) `.then()` in `async` function, Use `await` instead.
+
+**/views/auth/ForgotPassword.vue** - (Line 165) `.then()` in `async` function, Use `await` instead.
+
+**/views/auth/ForgotPassword.vue** - (Line 200) `.then()` in `async` function, Use `await` instead.
 
 ---
 
-- **/views/auth/Login.vue** - (Line 16) What do the URL queries have to do with this `<h2>` element? 
+**/views/auth/Login.vue** - (Line 16) What do the URL queries have to do with this `<h2>` element? 
 A comment explaining that would be nice.
-- **/views/auth/Login.vue** - (Line 267) Many nested `.then()`s. You could benefit from using `async await` here.
-- **/views/auth/Login.vue** - (Line 295) Extra { ? 
+
+**/views/auth/Login.vue** - (Line 267) Many nested `.then()`s. You could benefit from using `async await` here.
+
+**/views/auth/Login.vue** - (Line 295) Extra { ? 
 
 ---
 
-- **/views/auth/ResetPassword.vue** - Skipped
+**/views/auth/ResetPassword.vue** - Skipped
 
 ---
 
-- **/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 97) The `<aside>` could be a seperate component.
-- **/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 181) Use `v-if` and `v-else`. 
+
+**/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 97) The `<aside>` could be a seperate component.
+
+**/views/common/assistant/professional/PAProfessionalGoals.vue** - (Line 181) Use `v-if` and `v-else`. 
 https://vuejs.org/v2/guide/conditional.html#v-else
 
 ```html
@@ -550,9 +560,9 @@ Should be
 
 ---
 
-- **/views/common/assistant/tasks/PATasksCards.vue** - (Line 156) name should be `PATaskCard`, since this component represents only ONE Card. `PATaskCards` is confusing. 
+**/views/common/assistant/tasks/PATasksCards.vue** - (Line 156) name should be `PATaskCard`, since this component represents only ONE Card. `PATaskCards` is confusing. 
 
-- **/views/common/assistant/tasks/PATasksCards.vue** - (Line 63) Redundant computation
+**/views/common/assistant/tasks/PATasksCards.vue** - (Line 63) Redundant computation
 
 ```html
 <span
@@ -574,20 +584,22 @@ Move it to a utils file if possible.
 
 ---
 
-- **/views/common/assistant/tasks/PATasks.vue** - (Line 288) Expression too long to be in template.
+**/views/common/assistant/tasks/PATasks.vue** - (Line 288) Expression too long to be in template.
 
 
-- **/views/common/assistant/tasks/PATasks.vue** - (Line 2) Such a huge skeleton should be in a seperate file!
+**/views/common/assistant/tasks/PATasks.vue** - (Line 2) Such a huge skeleton should be in a seperate file!
 
 
-- **/views/common/assistant/tasks/PATasks.vue** -Could you render the 5 lists' markup in a for loop? This may be overkill.
+**/views/common/assistant/tasks/PATasks.vue** -Could you render the 5 lists' markup in a for loop? This may be overkill.
 
 
-- **/views/common/assistant/tasks/PATasks.vue** - (Line 515) It is not clear why you're using variables like `[one, two, three, four, five]`. Is it necessary to use variable names like these?
+**/views/common/assistant/tasks/PATasks.vue** - (Line 515) It is not clear why you're using variables like `[one, two, three, four, five]`. Is it necessary to use variable names like these?
 
 
-- **/views/common/AddTasks.vue** - (Line 55) Countdown Timer is used in 3 files. Could be moved to its own file.
-- **/views/common/AddTasks.vue** - (Line 980) Why assign `this.categoriesList` twice?
+
+**/views/common/AddTasks.vue** - (Line 55) Countdown Timer is used in 3 files. Could be moved to its own file.
+
+**/views/common/AddTasks.vue** - (Line 980) Why assign `this.categoriesList` twice?
 
 ```javascript
 //original code
@@ -608,8 +620,3 @@ getCategories().then((res) => {
     });
 });
 ```
-
-
-
-
-
