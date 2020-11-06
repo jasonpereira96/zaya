@@ -153,7 +153,7 @@ getCustomers(this.params)
         // too much logic in this single function. Can you modularize it?
     });
 ```
-- **/views/admin/customers/CustomersList.vue** - (Line 156) Nested filter/map logic should be clearer.
+**/views/admin/customers/CustomersList.vue** - (Line 156) Nested filter/map logic should be clearer.
 
 --- 
 
@@ -405,7 +405,7 @@ git grep -A 30 'getArchivedAccounts() {' ./src/
 
 ---
 
-/views/assistant/HandoverCustomers.vue - Skipped
+**/views/assistant/HandoverCustomers.vue** - Skipped
 
 ---
 
@@ -620,3 +620,76 @@ getCategories().then((res) => {
     });
 });
 ```
+
+**/views/common/AddTasks.vue** - (Line 1282) Redundant ternary operator
+
+**/views/common/AddTasks.vue** - (Line 1299) Use a `for .. of` loop here. Avoid using `for(let i=0; ....)` when possible.
+
+**/views/common/AddTasks.vue** - (Line 1349) Incorrect use of `.map()`. Value returned by `.map()` is unused. Then why use `.map()` in the first place?
+```javascript
+const payload = [];
+this.selectedCategories.map((item) => {
+    payload.push(item.id);
+});
+//Should be
+const payload = this.selectedCategories.map((item) => item.id);
+```
+
+**/views/common/AddTasks.vue** - (Line 1352) `categoryIDs` should be renamed to `categoryIds` in accordance with convention. 
+
+**/views/common/AddTasks.vue** - (Line 1390) Logic for decrementing page is confusing. Logic for incrementing page is good.
+```javascript
+//original code
+prevPage() {
+    this.currentPage--;
+    if (this.currentPage <= 0) {
+        this.currentPage = 1;
+    }
+}
+
+//should be
+prevPage() {
+    if (this.currentPage > 1) {
+        this.currentPage--;
+    }
+}
+```
+
+---
+
+**/views/common/ProfileSettings.vue** - (Line 1461) Bad variable names
+
+```javascript
+//bad naming
+let valid3 = await this.$refs.addressInfo.validate();
+let valid1 = await this.$refs.communicationInfo.validate();
+let valid2 = await this.$refs.generalInfo.validate();
+
+//better naming
+let addressIsValid = await this.$refs.addressInfo.validate();
+let communicationIsValid = await this.$refs.communicationInfo.validate();
+let generalIsValid = await this.$refs.generalInfo.validate();
+```
+
+**/views/common/ProfileSettings.vue** - (Line 1505) Identical definitions in multiple files
+```bash
+git grep -A 10 'uploadFile' ./src/
+```
+
+**/views/common/ProfileSettings.vue** - (Line 1543) Calls effectively synchronous. Use `Promise.all([])`
+```javascript
+//Original code
+getCommunicationIDs().then((res) => {
+    this.communicationArray = [...res.data.results];
+    getNotificationIDs().then((res) => { //only after the first call completes will this one start. 
+    //Dont need to wait for the first call to complete. Start the second one immediately.
+        this.notificationsArray = [...res.data.results];
+    });
+
+//better
+Promise.all(getCommunicationIDs(), getNotificationIDs()).then(([commResult, notificationResult]) => {
+    this.communicationArray = [...commResult.data.results];
+    this.notificationsArray = [...notificationResult.data.results];
+});
+```
+
