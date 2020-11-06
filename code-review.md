@@ -381,10 +381,10 @@ getAssistantCustomers(this.assistantProfileId, params)
 
 ### **/views/assistant/DedicatedCustomers.vue** - (Line 140) Instead of using multiple SVGs for hover and not hover, Could we use a single SVG and change CSS attributes like fill on hover?
 
-- **/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
-
 ### **/views/assistant/DedicatedCustomers.vue** - (Line 532) `getArchivedAccounts()` has multiple identical definitions in various files
 
 ```bash
 git grep -A 30 'getArchivedAccounts() {' ./src/
 ```
+
+- **/views/assistant/DedicatedCustomers.vue** - (Line 394) Modal could be a seperate component.
