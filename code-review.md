@@ -676,7 +676,8 @@ let generalIsValid = await this.$refs.generalInfo.validate();
 git grep -A 10 'uploadFile' ./src/
 ```
 
-**/views/common/ProfileSettings.vue** - (Line 1543) Calls effectively synchronous. Use `Promise.all([])`
+**/views/common/ProfileSettings.vue** - (Line 1543) Network calls effectively synchronous. Use `Promise.all([])` if the calls are not dependent on each other.
+
 ```javascript
 //Original code
 getCommunicationIDs().then((res) => {
@@ -687,9 +688,13 @@ getCommunicationIDs().then((res) => {
     });
 
 //better
-Promise.all(getCommunicationIDs(), getNotificationIDs()).then(([commResult, notificationResult]) => {
+Promise.all([getCommunicationIDs(), getNotificationIDs()]).then(([commResult, notificationResult]) => {
     this.communicationArray = [...commResult.data.results];
     this.notificationsArray = [...notificationResult.data.results];
 });
 ```
+
+---
+
+**/views/common/Resources.vue** - (Line 108) ResourceCard could be a seperate component.
 
