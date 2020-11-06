@@ -415,3 +415,46 @@ const data = communications.map(communication => {
     };
 });
 ```
+
+---
+
+
+- **/views/assistant/ViewPADirectory.vue** - (Line 330) Use case for `compress()`
+- **/views/assistant/ViewPADirectory.vue** - (Line 339) Use a computed proprety for such a huge expression.
+
+```javascript
+{{
+    `${
+    assistant.assistantProfile &&
+    assistant.assistantProfile.workHours
+        ? workHoursToInteger(assistant.assistantProfile.workHours)
+        : ""
+    }`
+}}
+
+//should be
+
+{{someComputedProperty}}
+```
+
+- **/views/assistant/ViewPADirectory.vue** - (Line 604) `workHoursToInteger()` repeated in 3 different files. That's still ok, not a big deal.
+
+```bash
+git grep -A 2 'workHoursToInteger(w' ./src/
+```
+
+---
+
+- **/views/auth/ForgotPassword.vue** - (Line 158) redundant variable `valid`
+
+```javascript
+const valid = true; // Why do this? :)
+if (valid) { // redundant
+    const data = {
+        email: this.email,
+    };
+    this.emailLoading = true;
+    //...
+    //...
+}
+```
