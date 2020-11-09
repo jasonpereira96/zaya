@@ -1,8 +1,20 @@
+# Code Review
+
+## Things I liked
+
+- CSS. *Bravo!* A really eye-catching design which is viscerally and visually appealing to the user.
+- Speed. You'll really built a lot given the amount of time. I wouldn't be able to do that myself.
+- Project is well structured. Everything has its place and I know where to find it.
+- Responsiveness. Some of the screens are responsive which is a big plus!
+
+
+## Review comments
+
 ### Note: Some of the line numbers have changed due to the latest commits
 
 1] **/apis/assistants/index.js** - some HTTP verbs are all small and some are all caps.
 
-2] **/apis/assistants/index.js** (Line 82) - handOver -> handover. The spelling of handover is inconsistent.
+2] **/apis/assistants/index.js** (Line 82) - `handOver` -> `handover`. The spelling of handover is inconsistent.
 
 3] **/apis/assistants/index.js** (Line 104) - replace the if check with `status = status || "";` More readable.
 
